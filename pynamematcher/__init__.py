@@ -1,1 +1,2 @@
-from matcher import *
+from __future__ import absolute_import
+from .matcher import *

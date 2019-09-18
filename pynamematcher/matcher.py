@@ -47,7 +47,7 @@ class PyNameMatcher(object):
                     else:
                         self.meta_map[secondary] = [n]
 
-    def match(self, name, use_metaphone=None):
+    def match(self, name, use_metaphone=None, remove_match=True):
         name = name.lower()
 
         if use_metaphone is None:
@@ -61,23 +61,26 @@ class PyNameMatcher(object):
             # name not in lookup
             names = set()
 
-        if len(names) < 1 and use_metaphone:
+        if use_metaphone:
             primary, secondary = doublemetaphone(name)
             try:
                 pos_names = self.meta_map.get(primary)
-                print(pos_names)
                 for pn in pos_names:
-                    names.update(self.match(pn, use_metaphone=False))
+                    pmatches = self.match(pn, use_metaphone=False, remove_match=False)
+                    if pmatches:
+                        names.update(pmatches)
 
                 if len(names) < 1 and secondary:
                     pos_names = self.meta_map.get(secondary)
                     for pn in pos_names:
-                        names.update(self.match(pn, use_metaphone=False))
+                        smatches = self.match(pn, use_metaphone=False, remove_match=False)
+                        if smatches:
+                            names.update(smatches)
 
             except (IndexError, KeyError):
                 pass
 
-            if name in names:
+            if remove_match and name in names:
                 names.remove(name)
 
         if len(names) < 1:
