@@ -13,7 +13,8 @@ class PyNameMatcher(object):
     def __init__(self, data_file=None, use_metaphone=False):
         self.use_metaphone = use_metaphone
         if not data_file:
-            _dir = os.getcwd()
+            # search for a datafile if one wasn't provided
+            _dir = os.path.dirname(__file__)
             data_file = os.path.join(_dir, 'data', 'names.csv')
             if not os.path.exists(data_file):
                 data_file = os.path.join(_dir, os.path.pardir, 'data', 'names.csv')
