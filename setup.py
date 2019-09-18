@@ -1,5 +1,5 @@
 from __future__ import absolute_import
-from distutils.core import setup
+from setuptools import setup
 
 import os
 import sys
@@ -17,5 +17,6 @@ setup(
     license='Apache',
     description='Simple library for matching first names with possible variations',
     long_description=open('README.rst').read(),
-    install_requires=['Metaphone']
+    install_requires=['Metaphone'],
+    package_data={'pynamematcher': ['data/*.csv']}
 )
