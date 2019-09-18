@@ -6,6 +6,8 @@ import functools
 
 from metaphone import doublemetaphone
 
+__all__ = ['PyNameMatcher']
+
 
 class PyNameMatcher(object):
     def __init__(self, data_file=None, use_metaphone=False):
