@@ -79,7 +79,7 @@ class PyNameMatcher(object):
                         if smatches:
                             names.update(smatches)
 
-            except (IndexError, KeyError):
+            except (IndexError, KeyError, TypeError):
                 pass
 
             if remove_match and name in names:
