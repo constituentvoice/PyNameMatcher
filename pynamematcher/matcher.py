@@ -85,7 +85,4 @@ class PyNameMatcher(object):
             if remove_match and name in names:
                 names.remove(name)
 
-        if len(names) < 1:
-            return None
-
         return names
