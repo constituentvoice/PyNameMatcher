@@ -1,2 +1,9 @@
 0.1.0	Initial release
 0.1.1	Fixed a TypeError if metaphone returns no matches
+0.1.2	Data update added "dusty"
+
+0.2.0	
+	- Return value change. No match now returns empty set
+	- include a warning about the above change
+	- added `empty_match_returns_none` option to use the old behavior
+	- added tests

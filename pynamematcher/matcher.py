@@ -4,6 +4,7 @@ import collections
 import csv
 import operator
 import functools
+import warnings
 
 from metaphone import doublemetaphone
 
@@ -49,7 +50,7 @@ class PyNameMatcher(object):
                     else:
                         self.meta_map[secondary] = [n]
 
-    def match(self, name, use_metaphone=None, remove_match=True):
+    def match(self, name, use_metaphone=None, remove_match=True, empty_match_returns_none=False):
         name = name.lower()
 
         if use_metaphone is None:
@@ -84,5 +85,11 @@ class PyNameMatcher(object):
 
             if remove_match and name in names:
                 names.remove(name)
+        
+        if len(names) < 1:
+            if empty_match_returns_none:
+                return None
+            else:
+                warnings.warn('No match found. (as of 0.2.0 the returned value is an empty set()')
 
         return names
