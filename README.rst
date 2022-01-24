@@ -39,13 +39,16 @@ DOCUMENTATION
 :remove_match:  Remove the input name (default `True`). Used internally to keep
                 names when searching metaphone symbols.
 
+:empty_match_returns_none:  If no names match the method will return None instead of the empty set
+                            this is to enable the behavior of versions before 0.2. (default `False`)
+
 AUTHOR
 ------
 Chris Brown - chris.brown@constituentvoice.com
 
 LICENSE
 -------
-Licensed under Apache License 2.0. Copyright 2019 Constituent Voice LLC.
+Licensed under Apache License 2.0. Copyright 2019-2022 Constituent Voice LLC.
 
 See LICENSE for complete terms.
 

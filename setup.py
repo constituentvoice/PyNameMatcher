@@ -18,5 +18,7 @@ setup(
     description='Simple library for matching first names with possible variations',
     long_description=open('README.rst').read(),
     install_requires=['Metaphone'],
-    package_data={'pynamematcher': ['data/*.csv']}
+    package_data={'pynamematcher': ['data/*.csv']},
+    test_suite="tests",
+    tests_require=['pytest']
 )

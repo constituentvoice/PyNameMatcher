@@ -1,0 +1,10 @@
+.eggs
+.idea
+PyNameMatcher.egg-info
+build
+dist
+*.pyc
+__pycache__
+*/__pycache__
+.tox
+MANIFEST
