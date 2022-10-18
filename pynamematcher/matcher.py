@@ -2,7 +2,6 @@ from __future__ import absolute_import
 import os
 import collections
 import csv
-import operator
 import warnings
 
 from metaphone import doublemetaphone
