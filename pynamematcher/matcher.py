@@ -3,7 +3,6 @@ import os
 import collections
 import csv
 import operator
-import functools
 import warnings
 
 from metaphone import doublemetaphone
@@ -57,7 +56,9 @@ class PyNameMatcher(object):
             use_metaphone = self.use_metaphone
 
         try:
-            names = functools.reduce(operator.or_, self.lookup[name])
+            names = set()
+            for group in self.lookup[name]:
+                names.update(group)
             if name in names:
                 names.remove(name)
         except TypeError:
