@@ -7,3 +7,8 @@
 	- include a warning about the above change
 	- added `empty_match_returns_none` option to use the old behavior
 	- added tests
+
+0.2.1
+	- Fix for the lookup dict getting modifed (thanks NickCrews!)
+	- Adds a test to check for issues with the lookup dict
+
