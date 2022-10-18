@@ -26,3 +26,12 @@ class TestPyNameMatcher:
         pm = PyNameMatcher()
         assert pm.match('gobblygoop', empty_match_returns_none=True) is None
 
+    def test_data_integrity(self):
+        pm = PyNameMatcher()
+       
+        # test to make sure names are not removed from the original list
+        pm.match('stu')
+        assert 'stu' in pm.lookup.get('stu')[0]
+        
+
+
